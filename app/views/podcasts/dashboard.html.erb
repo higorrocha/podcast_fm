@@ -1,3 +1,5 @@
+<%= render 'layouts/header'; %>
+
 <div id="podcast_show">
   <div id="show_banner">
     <div class="wrapper_skinny">
@@ -21,6 +23,11 @@
       <ul class="cf">
         <% @episodes.each do |episode| %>
           <li class="cf">
+            <div class="episode_thumbnail">
+              <a href="episode.html">
+                <%= image_tag episode.episode_thumbnail.url(:medium) %>
+              </a>
+            </div>
             <div class="episode_overview">
               <h2><%= link_to episode.title, podcast_episode_path(@podcast, episode) %></h2>
               <p class="description"><%= truncate(episode.description, lenght: 160) %></p>
@@ -35,3 +42,5 @@
     </div>
   </div>
 </div>
+
+<%= will_paginate @episodes, previous_label: "Previous", next_label: "Next" %>
