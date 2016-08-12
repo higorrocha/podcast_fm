@@ -1,0 +1,21 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1>The Rocketship Podcast Dashboard</h1>
+    </div>
+  </div>
+
+<%= form_for ([@podcast, @episode]) do |f| %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <%= f.submit class: "button button_highlight button_block" %>
+<% end %>
